@@ -1,0 +1,13 @@
+services:
+  postgres:
+    image: 'postgres:latest'
+    environment:
+      - 'POSTGRES_DB=photo'
+      - 'POSTGRES_PASSWORD=ffdev'
+      - 'POSTGRES_USER=ffdev'
+    ports:
+      - '5432'
+  redis:
+    image: 'redis:latest'
+    ports:
+      - '6379'
