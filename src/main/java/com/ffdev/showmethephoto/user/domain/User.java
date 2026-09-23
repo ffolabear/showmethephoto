@@ -48,6 +48,7 @@ public class User {
     protected User() {
     }
 
+
     private User(String email, String passwordHash, String name) {
         this.id = UUID.randomUUID();
         this.email = email;
