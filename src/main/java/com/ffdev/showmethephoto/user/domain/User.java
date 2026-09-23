@@ -61,6 +61,13 @@ public class User {
         return new User(email, passwordHash, name);
     }
 
+    @PrePersist
+    protected void onCreate() {
+        Instant now = Instant.now();
+        this.createdAt = now;
+        this.updatedAt = now;
+    }
+
     @PreUpdate
     private void onUpdate() {
         this.updatedAt = Instant.now();
