@@ -4,6 +4,7 @@ import com.ffdev.showmethephoto.auth.application.AuthService;
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
@@ -17,6 +18,12 @@ public class AuthController {
     @ResponseStatus(HttpStatus.CREATED)
     public SignupResponse signup(@Valid @RequestBody SignupRequest request) {
         return authService.signup(request);
+    }
+
+    @PostMapping("login")
+    public ResponseEntity<TokenResponse> login(@Valid @RequestBody LoginRequest request) {
+        TokenResponse tokenResponse = authService.login(request);
+        return ResponseEntity.ok(tokenResponse);
     }
 
 }

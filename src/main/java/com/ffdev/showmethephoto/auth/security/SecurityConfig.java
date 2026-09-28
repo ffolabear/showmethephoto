@@ -28,6 +28,7 @@ public class SecurityConfig {
                         auth -> auth
                                 .requestMatchers(
                                         "/api/v1/auth/signup",
+                                        "/api/v1/auth/login",
                                         "/actuator/health"
                                 ).permitAll()
                                 .anyRequest().authenticated()

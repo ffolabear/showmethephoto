@@ -4,6 +4,7 @@ import com.ffdev.showmethephoto.auth.api.SignupRequest;
 import com.ffdev.showmethephoto.auth.api.SignupResponse;
 import com.ffdev.showmethephoto.auth.application.AuthService;
 import com.ffdev.showmethephoto.auth.application.EmailAlreadyExistsException;
+import com.ffdev.showmethephoto.auth.application.TokenService;
 import com.ffdev.showmethephoto.user.domain.User;
 import com.ffdev.showmethephoto.user.repository.UserRepository;
 import org.junit.jupiter.api.BeforeEach;
@@ -30,12 +31,15 @@ public class AuthServiceTest {
     @Mock
     private PasswordEncoder passwordEncoder;
 
+    @Mock
+    private TokenService tokenService;
+
     private AuthService authService;
 
     @BeforeEach
     void setUp() {
         authService = new AuthService(
-                userRepository, passwordEncoder
+                userRepository, passwordEncoder, tokenService
         );
     }
 
