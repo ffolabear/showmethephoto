@@ -1,0 +1,17 @@
+spring:
+
+  jpa:
+    open-in-view: false
+    hibernate:
+      ddl-auto: validate
+
+  datasource:
+    url: ${PG_URL}
+    username: ${PG_USER}
+    password: ${PG_PASSWORD}
+
+  flyway:
+    enabled: true
+
+server:
+  port: 8081
