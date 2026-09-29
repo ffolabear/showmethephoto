@@ -2,13 +2,18 @@ spring:
   application:
     name: showmethephoto
 
-    profiles:
-      default: local
+  profiles:
+    default: local
 
-      jpa:
-        open-in-view: false
-        hibernate:
-          ddl-auto: validate
+  jpa:
+    open-in-view: false
+    hibernate:
+      ddl-auto: validate
 
-    server:
-      port: 8081
+server:
+  port: 8081
+
+app:
+  jwt:
+    secret: ${JWT_SECRET}
+    access-token-ttl-seconds: 3600

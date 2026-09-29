@@ -32,7 +32,9 @@ public class SecurityConfig {
                                         "/actuator/health"
                                 ).permitAll()
                                 .anyRequest().authenticated()
-                ).build();
+                ).oauth2ResourceServer(
+                        oauth2 -> oauth2.jwt(jwt -> {}))
+                .build();
     }
 
 }
